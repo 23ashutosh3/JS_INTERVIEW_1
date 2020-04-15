@@ -1,0 +1,25 @@
+it is the newest way to write asaynchronous code in javaScript.Async/Await was
+ created to simplify the process of working with and writing chained promises.
+ Async function return a Promise.If the function throws an error,
+ the Promise will be rejectd.if the function returns a value,
+ the promise will resolve.
+
+The benefit of async functions increases in more complex examples. 
+Say we wanted to stream a response while logging out the chunks, and 
+return the final size.
+
+ async function myFetch() {
+  try {
+    let response = await fetch('coffee.jpg');
+    let myBlob = await response.blob();
+
+    let objectURL = URL.createObjectURL(myBlob);
+    let image = document.createElement('img');
+    image.src = objectURL;
+    document.body.appendChild(image);
+  } catch(e) {
+    console.log(e);
+  }
+}
+
+myFetch();

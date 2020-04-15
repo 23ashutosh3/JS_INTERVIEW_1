@@ -1,0 +1,65 @@
+//Explain the concept of prototypes in JS. How is it related to Classes in ES6
+
+javaScript is often described as protoype-based language to provide inheritence.
+objects can have a prototype object,an object's prototype may also have a prototype.
+which it inherits methods and propeties from.
+as ex-
+person1 ->inherits property from -> Person-> inherits property from ->Object
+
+
+let's understand with example ;-
+
+function Employee(name)
+{
+    this.name =name;
+
+    this.getName = function()
+    {
+      return this.name;
+    }
+}
+var e1=new Employee("Mark");
+var e2=new Employee("Sara");
+
+console.log(e1.getName());
+console.log(e2.getName());
+
+in this program we didn't use prototype so we create 2 object ,
+then there will be 2 copies of function,if there are 100 object,
+then there should be 100 copies of function.this is bad ,In any Object 
+oriented programming language we don't want to make copies.
+
+This problem is solved by using prototype.
+
+function Employee(name)
+{
+    this.name =name;
+}
+
+Employee.prototype.getName =function ()
+{
+    return this.name;
+}
+
+var e1=new Employee("Mark");
+var e2=new Employee("Sara");
+
+console.log(e1.getName());
+console.log(e2.getName());
+
+advantage of using prototype is:-
+1)no matter how many objects are created ,function are loaded only once.
+2)Allows you to overide function if required.
+
+
+
+In the early history of the JavaScript language, a cloud of animosity 
+formed over the lack of a proper syntax for defining classes like in most
+ object oriented languages. It wasn’t until the ES6 spec release in 2015 that
+ the class keyword was introduced; it is described as syntactical sugar over the existing prototype-based inheritance.
+
+ the class keyword in ES6 is equivalent to a constructor function definition that
+  conforms to prototype-based inheritance.
+
+ 
+

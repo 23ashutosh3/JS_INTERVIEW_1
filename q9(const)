@@ -1,0 +1,18 @@
+ES6 provides a new way of declaring a constant by using the const keyword. 
+The const keyword creates a read-only reference to a value.
+
+const VARIABLE_NAME = value;
+
+The const keyword works like the let keyword. But the const keyword creates block-scoped variables 
+whose values can’t be reassigned.
+
+The variables declared by the let keyword are mutual. you can change its value any time.
+
+let a = 10;
+a = 20;
+a = a + 5;
+console.log(a);
+
+However, variables created by the const keyword are immutable.
+const RATE = 0.1;
+RATE = 0.2;
